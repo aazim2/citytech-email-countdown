@@ -1,0 +1,33 @@
+<!--
+  Countdown block for an HTML email.
+
+  Replace:
+    example.edu          your host
+    openhouse-fall26     the key from the EVENTS array in timer.php
+    {{GUID}}             a per-recipient merge field (Slate: {{GUID}})
+
+  The per-recipient value is not optional. Gmail proxies and caches images by URL
+  for 24-72 hours, so without it every recipient is served one frozen render.
+
+  The table wrapper is for Outlook, which ignores max-width on a bare <img>.
+  The alt text carries the date, because many clients block images by default and
+  a blocked countdown should still tell the reader when the event is.
+-->
+
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" style="padding:12px 0;">
+      <a href="https://example.edu/open-house" target="_blank" style="text-decoration:none;">
+        <img src="https://example.edu/timer.php?e=openhouse-fall26&amp;r={{GUID}}"
+             width="480" height="96" border="0"
+             alt="Open House countdown - Saturday, November 14, 10:00 AM"
+             style="display:block;width:100%;max-width:480px;height:auto;border:0;outline:none;text-decoration:none;">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.5;color:#4a6480;padding-bottom:8px;">
+      Saturday, November 14, 2026 &nbsp;&middot;&nbsp; 10:00 AM &ndash; 3:00 PM
+    </td>
+  </tr>
+</table>
