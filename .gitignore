@@ -5,3 +5,18 @@ __pycache__/
 cache/
 *.log
 .DS_Store
+
+# Written at runtime by admin.php — holds the password hash.
+php/config.php
+
+# Live timer data and its lock / interrupted writes.
+php/timers.json
+php/timers.json.lock
+php/*.tmp
+__pycache__/
+*.pyc
+.env
+.venv/
+cache/
+*.log
+.DS_Store
