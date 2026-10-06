@@ -1,0 +1,14 @@
+{
+    "openhouse-fall26": {
+        "name": "Fall 2026 Open House",
+        "date": "2026-11-14",
+        "time": "10:00",
+        "end_time": "15:00",
+        "tz": "America/New_York",
+        "label": "UNTIL OPEN HOUSE",
+        "live": "THE DOORS ARE OPEN",
+        "past": "THANK YOU FOR JOINING US",
+        "style": "citytech",
+        "created": "2026-10-06T12:00:00-04:00"
+    }
+}
