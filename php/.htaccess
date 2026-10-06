@@ -1,0 +1,28 @@
+# Keep the data and config files from being fetched over HTTP.
+#
+# config.php holds the password hash. PHP would execute rather than print it, so
+# it is not readable in normal operation — but if PHP is ever misconfigured or
+# disabled for this directory, the file would be served as plain text and the
+# hash handed out. timers.json has no secrets in it, only event names and dates,
+# but there is no reason to publish it either.
+#
+# Apache only. On nginx, add the equivalent to the server block:
+#   location ~ /(config\.php|timers\.json.*|.*\.lock)$ { deny all; }
+# On IIS, use web.config <requestFiltering><hiddenSegments>.
+
+<FilesMatch "^(config\.php|timers\.json|timers\.example\.json)$">
+  Require all denied
+</FilesMatch>
+
+# Lock files and interrupted writes.
+<FilesMatch "\.(lock|tmp)$">
+  Require all denied
+</FilesMatch>
+
+# Apache 2.2 fallback, harmless under 2.4 with mod_access_compat.
+<IfModule !mod_authz_core.c>
+  <FilesMatch "^(config\.php|timers\.json|timers\.example\.json)$">
+    Order allow,deny
+    Deny from all
+  </FilesMatch>
+</IfModule>
